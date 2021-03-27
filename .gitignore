@@ -6,3 +6,4 @@ project/**/migrations/*
 *__pycache__/
 *.pyc
 project/static
+project/media/uploads/*
