@@ -1,0 +1,15 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for topic in object_list %}
+    <p>{{ topic.name }}</p>
+    <a href="{% url 'topic-detail' topic.id %}" target="_blank"
+          class="btn btn-info text-white mr-0">
+          View
+    </a>
+{% endfor %}
+
+{% endblock %}

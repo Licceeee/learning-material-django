@@ -1,0 +1,24 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>{{ object }}</h1>
+    {% for material in object.material_set.all %}
+    <div class="border rounded">
+        <p>{{ material.title }}</p>
+        <p>{{ material.material_type.name }}</p>
+        {% if material.url %}
+            {{ material.url }}
+        {% endif %}
+        {% if material.video %}
+            <video width="400" controls>
+                <source src="{{ material.video }}" type="video/mov">
+            </video>
+        {% endif %}
+        <hr />
+    </div>
+    {% endfor %}
+
+{% endblock %}
