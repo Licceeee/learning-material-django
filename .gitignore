@@ -7,3 +7,4 @@ project/**/migrations/*
 *.pyc
 project/static
 project/media/uploads/*
+project/db.sqlite3
