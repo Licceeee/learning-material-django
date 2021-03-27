@@ -1,0 +1,8 @@
+
+venv
+project/config/local_settings.py
+.vscode/
+project/**/migrations/*
+*__pycache__/
+*.pyc
+project/static
