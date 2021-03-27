@@ -1,0 +1,58 @@
+$dark-color: #343A40;
+$font: #162845;
+$first-color: #98cdc4;
+$second-color: #C7E4DF;
+#header {
+    height: 50px;
+    background: $dark-color;
+    color: rgb(155, 93, 93);
+}
+
+#branding h1 {
+    color: #fff;
+}
+
+a:link,
+a:visited {
+    color: #1d4877;
+}
+
+div.breadcrumbs {
+    background: $first-color;
+    color: $font;
+}
+
+div.breadcrumbs a {
+    color: #333;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+    background: #c7e4df;
+}
+
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button {
+    background: $dark-color;
+    color: #fff;
+}
+
+a.section:link,
+a.section:visited {
+    color: $font;
+    text-decoration: none;
+}
+
+#nav-sidebar .current-app .section:link,
+#nav-sidebar .current-app .section:visited {
+    color: $font;
+    font-weight: bold;
+}
+
+#nav-sidebar .current-model {
+    background: #e6ecec;
+}

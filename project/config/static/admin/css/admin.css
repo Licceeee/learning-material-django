@@ -1,0 +1,55 @@
+#header {
+  height: 50px;
+  background: #343A40;
+  color: #9b5d5d;
+}
+
+#branding h1 {
+  color: #fff;
+}
+
+a:link,
+a:visited {
+  color: #1d4877;
+}
+
+div.breadcrumbs {
+  background: #98cdc4;
+  color: #162845;
+}
+
+div.breadcrumbs a {
+  color: #333;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+  background: #c7e4df;
+}
+
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button {
+  background: #343A40;
+  color: #fff;
+}
+
+a.section:link,
+a.section:visited {
+  color: #162845;
+  text-decoration: none;
+}
+
+#nav-sidebar .current-app .section:link,
+#nav-sidebar .current-app .section:visited {
+  color: #162845;
+  font-weight: bold;
+}
+
+#nav-sidebar .current-model {
+  background: #e6ecec;
+}
+/*# sourceMappingURL=admin.css.map */
