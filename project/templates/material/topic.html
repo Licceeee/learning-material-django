@@ -4,21 +4,73 @@
 
 {% block content %}
 
-    <h1>{{ object }}</h1>
-    {% for material in object.material_set.all %}
-    <div class="border rounded">
-        <p>{{ material.title }}</p>
-        <p>{{ material.material_type.name }}</p>
-        {% if material.url %}
-            {{ material.url }}
-        {% endif %}
-        {% if material.video %}
-            <video width="400" controls>
-                <source src="{{ material.video }}" type="video/mov">
-            </video>
-        {% endif %}
-        <hr />
-    </div>
-    {% endfor %}
 
+<div class="container">
+    <div class="row p-0">
+
+        <div class="col-12">
+            <h1>{{ object }}</h1>
+        </div>
+            <div class="col-12">
+                <h5>Lecture</h5>
+            </div>
+            {% for lecture in object.lecture_set.all %}
+                <div class="col-3">
+                    <p>{{ lecture.title }}</p>
+                    <p>{{ lecture.date }}</p>
+                    {% comment %} {% if material.video %}
+                        <video width="400" controls>
+                            <source src="{{ material.video }}" type="video/mov">
+                        </video>
+                    {% endif %} {% endcomment %}
+                </div>
+            {% endfor %}
+            <hr />
+
+        <div class="col-12">
+            <h5>Exercises</h5>
+        </div>
+        {% for exercise in object.exercise_set.all %}
+            <div class="col-3">
+            
+                <p>{{ exercise.title }}</p>
+                --
+                <p>{{ exercise.exercise_format }}: 
+                {% if exercise.url_exercise %}
+                    <a href="{{ exercise.url_exercise }}" target="blank_">{{ exercise.url_exercise }} </a>
+                {% endif %}
+                </p>
+                <p>{{ exercise.correction_format }}: 
+                {% if exercise.url_correction %}
+                    <a href="{{ exercise.url_correction }}" target="blank_">{{ exercise.url_correction }} </a>
+                {% endif %}
+                </p>
+            </div>
+        {% endfor %}
+
+        <hr />
+        <div class="col-12">
+            <h5>Learning Materials</h5>
+        </div>
+        {% for material in object.material_set.all %}
+            <div class="col-3">
+                <p>{{ material.title }}</p>
+                <p>{{ material.material_type.name }}</p>
+                {% if material.url %}
+                    <a href="{{ material.url }}" target="blank_">{{ material.url }} </a>
+                {% endif %}
+                {% comment %} {% if material.video %}
+                    <video width="400" controls>
+                        <source src="{{ material.video }}" type="video/mov">
+                    </video>
+                {% endif %} {% endcomment %}
+            </div>
+
+        {% endfor %}
+        <a href="{% url 'topics' %}" 
+            class="btn btn-danger text-white mr-0">
+            Back
+        </a>
+    </div>
+</div>
 {% endblock %}

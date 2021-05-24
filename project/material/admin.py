@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import (Topic, MaterialType, Material)
+from .models import (Topic, MaterialType, Material, Lecture, Exercise)
 
 
 class MaterialsInline(admin.StackedInline):
@@ -12,9 +12,19 @@ class TopicInline(admin.StackedInline):
     extra = 1
 
 
+class LectureInline(admin.StackedInline):
+    model = Lecture.topics.through
+    extra = 1
+
+
+class ExerciseInline(admin.StackedInline):
+    model = Exercise.topics.through
+    extra = 1
+
+
 @admin.register(Topic)
 class TopicAdmin(admin.ModelAdmin):
-    inlines = [MaterialsInline]
+    inlines = [LectureInline, ExerciseInline, MaterialsInline]
     search_fields = ['name']
     readonly_fields = ('created', 'updated')
     list_display = ('name', 'created', 'updated')
@@ -34,6 +44,27 @@ class MaterialAdmin(admin.ModelAdmin):
     search_fields = ['title', 'topic']
     readonly_fields = ('created', 'updated')
     autocomplete_fields = ['material_type', 'topics']
-    list_display = ('title', 'get_topics', 'material_type', 'url', 'video',
+    list_display = ('title', 'get_topics', 'material_type', 'url',
                     'created', 'updated')
     list_filter = ('topics',)
+
+
+@admin.register(Lecture)
+class LectureAdmin(admin.ModelAdmin):
+    search_fields = ['title', 'topic']
+    readonly_fields = ('created', 'updated')
+    autocomplete_fields = ['topics']
+    list_display = ('title', 'get_topics', 'video', 'date',
+                    'created', 'updated')
+    list_filter = ('topics', 'date')
+
+
+@admin.register(Exercise)
+class ExerciseAdmin(admin.ModelAdmin):
+    search_fields = ['title', 'topic']
+    readonly_fields = ('created', 'updated')
+    autocomplete_fields = ['topics', 'exercise_format', 'correction_format']
+    list_display = ('title', 'get_topics', 'exercise_format', 'url_exercise',
+                    'correction_format', 'url_correction', 'from_date',
+                    'created', 'updated')
+    list_filter = ('topics', 'from_date')

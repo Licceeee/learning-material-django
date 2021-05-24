@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import Timestamps
 from uuid import uuid4
+from datetime import datetime, date
 
 
 def upload_dir_path(instance, filename):
@@ -41,8 +42,7 @@ class Material(Timestamps):
     material_type = models.ForeignKey(MaterialType, default=None,
                                       on_delete=models.CASCADE)
     url = models.URLField(null=True, blank=True)
-    video = models.FileField(default=None, upload_to=upload_dir_path,
-                             null=True, blank=True)
+
     class Meta:
         verbose_name = "Material"
         verbose_name_plural = "Materials"
@@ -50,6 +50,44 @@ class Material(Timestamps):
     def __str__(self):
         return f"{self.title}"
     
+    def get_topics(self):
+        return ", ".join([
+        topic.name for topic in self.topics.all()])
+    get_topics.short_description = "Topics"
+    
+    
+class Lecture(Timestamps):
+    title = models.CharField(max_length=100)
+    topics = models.ManyToManyField(Topic)
+    video = models.FileField(default=None, upload_to=upload_dir_path,
+                             null=True, blank=True)
+    date = models.DateField(default=datetime.now)
+    
+    def __str__(self):
+        return f"{self.title}"
+    
+    def get_topics(self):
+            return ", ".join([
+        topic.name for topic in self.topics.all()])
+    get_topics.short_description = "Topics"
+    
+
+class Exercise(Timestamps):
+    title = models.CharField(max_length=100)
+    topics = models.ManyToManyField(Topic)
+    exercise_format = models.ForeignKey(MaterialType, default=None,
+                                        related_name="exercise",
+                                        on_delete=models.CASCADE)
+    url_exercise = models.URLField(null=True, blank=True)
+    correction_format = models.ForeignKey(MaterialType, default=None,
+                                          related_name="correction",
+                                          on_delete=models.CASCADE)
+    url_correction = models.URLField(null=True, blank=True)
+    from_date = models.DateField(default=datetime.now)
+
+    def __str__(self):
+        return f"{self.title}"
+
     def get_topics(self):
         return ", ".join([
         topic.name for topic in self.topics.all()])

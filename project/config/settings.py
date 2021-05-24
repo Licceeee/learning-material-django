@@ -146,6 +146,8 @@ STATICFILES_DIRS = [
 
 ADMINS = (('Alicia Schonefeld', 'schonefeld.dev@gmail.com'), )
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 try:
     from .local_settings import *   # noqa
