@@ -15,14 +15,7 @@ def upload_dir_path(instance, filename):
 
 
 def upload_video_path(instance, filename):
-    ext = filename.split('.')[-1]
-    if instance.pk:
-        filename = f'{instance.pk}.{ext}'
-    else:
-        # set filename as random string
-        filename = f'{uuid4().hex}.{ext}'
     return (f'uploads/videos/{filename}')
-
 
 
 class Topic(Timestamps):
