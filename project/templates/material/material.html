@@ -12,20 +12,11 @@
             <h1>{{ object }}</h1>
         </div>
         {% if material.video %}
-            <video width="400" controls>
-                <source src="{{ material.video }}" type="video/mp4">
+            <video class="video-player" controls>
+            
+                <source src="{{ material.video.url }}" type="video/mp4">
             </video>
         {% endif %}
-       {% comment %} <source src="{{ MEDIA_URL }}/uploads/videos/sample.mp4" type="video/mp4"></source> {% endcomment %}
-
-            {% comment %} {% for lecture in object.lecture_set.all %}
-                <div class="col-3">
-                    <p>{{ lecture.title }}</p>
-                    <p>{{ lecture.date }}</p>
-                   
-                </div>
-            {% endfor %} {% endcomment %}
-             {% comment %}  {% endcomment %}
             <hr />
 
        

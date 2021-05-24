@@ -8,7 +8,7 @@ body {
     background-color: $base-bg;
     color: rgb(189, 69, 69);
     .main {
-        padding: 10% 0;
+        padding: 2% 0;
         text-align: center;
     }
     .custom-input {
@@ -22,4 +22,8 @@ a {
 
 a:hover {
     color: rgb(41, 85, 99);
+}
+
+.video-player {
+    height: 70vh;
 }

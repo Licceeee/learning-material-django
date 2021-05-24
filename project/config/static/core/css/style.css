@@ -9,7 +9,7 @@ body {
 }
 
 body .main {
-  padding: 10% 0;
+  padding: 2% 0;
   text-align: center;
 }
 
@@ -23,5 +23,9 @@ a {
 
 a:hover {
   color: #295563;
+}
+
+.video-player {
+  height: 70vh;
 }
 /*# sourceMappingURL=style.css.map */
