@@ -1,0 +1,37 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row p-0">
+
+        <div class="col-12">
+            <h1>{{ object }}</h1>
+        </div>
+
+       
+            {% comment %} {% for lecture in object.lecture_set.all %}
+                <div class="col-3">
+                    <p>{{ lecture.title }}</p>
+                    <p>{{ lecture.date }}</p>
+                   
+                </div>
+            {% endfor %} {% endcomment %}
+             {% comment %} {% if material.video %}
+                        <video width="400" controls>
+                            <source src="{{ material.video }}" type="video/mov">
+                        </video>
+                    {% endif %} {% endcomment %}
+            <hr />
+
+       
+        <a href="{% url 'categories' %}" 
+            class="btn btn-danger text-white mr-0">
+            Back
+        </a>
+    </div>
+</div>
+{% endblock %}
