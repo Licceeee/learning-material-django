@@ -2,9 +2,9 @@
 venv
 project/config/local_settings.py
 .vscode/
-# project/**/migrations/*
+project/**/migrations/*
 *__pycache__/
 *.pyc
 project/static
-# project/media/uploads/*
-# project/db.sqlite3
+project/media/uploads/*
+project/db.sqlite3
