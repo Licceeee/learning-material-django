@@ -1,11 +1,13 @@
 from django.contrib import admin
-from .models import (Topic, MaterialType, Material, Lecture, Exercise)
+from .models import (Topic, MaterialType, Material, Lecture, Exercise,
+                     Category, SubCategory)
 
 
 class MaterialsInline(admin.StackedInline):
     model = Material.topics.through
     extra = 1
     autocomplete_fields = ('material',)
+
 
 class TopicInline(admin.StackedInline):
     model = Topic
@@ -22,6 +24,23 @@ class ExerciseInline(admin.StackedInline):
     extra = 1
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    search_fields = ['name']
+    readonly_fields = ('created', 'updated')
+    list_display = ('name', 'created', 'updated')
+    list_filter = ('name',)
+
+
+@admin.register(SubCategory)
+class SubCategoryAdmin(admin.ModelAdmin):
+    autocomplete_fields = ['category']
+    search_fields = ['name']
+    readonly_fields = ('created', 'updated')
+    list_display = ('name', 'created', 'updated')
+    list_filter = ('name',)
+
+
 @admin.register(Topic)
 class TopicAdmin(admin.ModelAdmin):
     inlines = [LectureInline, ExerciseInline, MaterialsInline]
@@ -29,7 +48,7 @@ class TopicAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
     list_display = ('name', 'created', 'updated')
     list_filter = ('name',)
-    
+
 
 @admin.register(MaterialType)
 class MaterialTypeAdmin(admin.ModelAdmin):
@@ -43,7 +62,7 @@ class MaterialTypeAdmin(admin.ModelAdmin):
 class MaterialAdmin(admin.ModelAdmin):
     search_fields = ['title', 'topic']
     readonly_fields = ('created', 'updated')
-    autocomplete_fields = ['material_type', 'topics']
+    autocomplete_fields = ['material_type', 'topics', 'subcategory']
     list_display = ('title', 'get_topics', 'material_type', 'url',
                     'created', 'updated')
     list_filter = ('topics',)
