@@ -1,6 +1,5 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render
-import random
 
 
 def bad_request(request, exception):
@@ -17,6 +16,10 @@ def page_not_found(request, exception):
 
 def server_error(request):
     return render(request, 'core/errors/500.html', status=500)
+
+
+def entity_too_large(request):
+    return render(request, 'core/errors/413.html', status=413)
 
 
 class IndexView(TemplateView):
