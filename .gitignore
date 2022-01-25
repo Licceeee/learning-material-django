@@ -6,5 +6,5 @@ project/**/migrations/*
 *__pycache__/
 *.pyc
 project/static
-project/media/uploads/*
+project/media/*
 # project/db.sqlite3
