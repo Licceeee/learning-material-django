@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row p-0">
+
+        <div class="col-12">
+            <h1>{{ object }}</h1>
+        </div>
+
+        {% for lesson in object.lesson_set.all %}
+        <div class="col-12 col-md-6 col-xl-3 border my-1 py-2 p-0">
+            <h3>{{ lesson.title }}</h3>
+            {% if lesson.url %}
+            <video width="300" controls>
+                <source src="{{ lesson.url }}" type="video/mov">
+            </video>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+        <hr />
+
+
+        <a href="{ url 'topics' %}" class="btn btn-danger text-white mr-0">
+            Back
+        </a>
+    </div>
+</div>
+{% endblock %}

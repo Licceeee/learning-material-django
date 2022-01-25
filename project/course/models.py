@@ -1,5 +1,6 @@
 from django.db import models
 from core.models import Timestamps
+from django.core.validators import URLValidator
 
 
 class Teacher(Timestamps):
@@ -34,7 +35,7 @@ class Lesson(Timestamps):
     seen = models.BooleanField(default=False)
     sortable_inline_order = models.PositiveIntegerField(default=0, blank=False,
                                                         null=False)
-    url = models.URLField(null=True, blank=True)
+    url = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta(object):
         verbose_name = "Lesson"
