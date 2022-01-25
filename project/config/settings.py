@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'core.apps.CoreConfig',
     'material.apps.MaterialConfig',
+    'course.apps.CourseConfig',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [
