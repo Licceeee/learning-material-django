@@ -7,8 +7,9 @@ rm -rf material/migrations/*
 python manage.py makemigrations user
 python manage.py makemigrations core
 python manage.py makemigrations material
+python manage.py makemigrations course
 python manage.py migrate
-python manage.py createsuperuser
+#python manage.py createsuperuser
 
 # python manage.py migrate admin zero
 # python manage.py migrate auth zero
