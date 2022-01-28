@@ -8,3 +8,4 @@ project/**/migrations/*
 project/static
 project/media/*
 # project/db.sqlite3
+project/snippets
