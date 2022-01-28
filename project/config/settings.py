@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'dal',
+    'dal_select2',
+    'admin_auto_filters',
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
     'core.apps.CoreConfig',
-    'material.apps.MaterialConfig',
+    # 'material.apps.MaterialConfig',
     'course.apps.CourseConfig',
+    'routine.apps.RoutineConfig',
+    'workout.apps.WorkoutConfig',
     'adminsortable2',
 ]
 
