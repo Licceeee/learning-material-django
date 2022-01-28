@@ -26,6 +26,9 @@ class Course(Timestamps):
     def __str__(self):
         return f"{self.title}"
 
+    def count_videos(self):
+        return self.lesson_set.count()
+
 
 class Lesson(Timestamps):
     title = models.CharField(max_length=100, unique=True)
