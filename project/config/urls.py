@@ -14,8 +14,9 @@ handler500 = 'core.views.server_error'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('topics/', include('material.urls')),
-    path('courses/', include('course.urls'))
+    path('courses/', include('course.urls')),
+    # path('topics/', include('material.urls')),
+
 ]
 
 if settings.DEBUG:
