@@ -15,7 +15,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('courses/', include('course.urls')),
-    # path('topics/', include('material.urls')),
+    path('workouts/', include('workout.urls')),
 
 ]
 
