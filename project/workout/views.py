@@ -111,14 +111,14 @@ def get_diff_min_to_prev_week(min_current, min_previous):
     increase = min_current - min_previous
     try:
         return round(increase / min_previous * 100, 2)
-    except Exception as e:
+    except Exception:
         if min_current > 0:
             return 100
         return 0
 
 
-class IndexView(TemplateView):
-    template_name = 'workout/index.html'
+class WorkoutView(TemplateView):
+    template_name = 'workout/workout.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
