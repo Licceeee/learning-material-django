@@ -1,0 +1,194 @@
+{% extends 'workout/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <!-- ============================================================ >> WEEK -->
+  <div class="first-section">
+    <div>
+      {% if selected_week == 1 %}
+      <a href="{% url 'workout' 52 selected_year|add:" -1" %}">
+        <i class="fa fa-arrow-left"></i> </a>
+      {% else %}
+      <a href="{% url 'workout' selected_week|add:" -1" selected_year %}">
+        <i class="fa fa-arrow-left"></i> </a>
+      {% endif %}
+
+    </div>
+
+    <h3 class="pl-0 text-center">Week {{ selected_week }} - {{ selected_year }}</h3>
+
+    <div>
+      {% if selected_week == 52 %}
+      <a href="{% url 'workout' 1 selected_year|add:" 1" %}">
+        <i class="fa fa-arrow-right"></i>
+      </a>
+      {% else %}
+      <a href="{% url 'workout' selected_week|add:" 1" selected_year %}">
+        <i class="fa fa-arrow-right"></i>
+      </a>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <!-- =========================================================== >> STATS -->
+  <div class="stats">
+    <div class="stats-overview-container py-5">
+      <div class="stat">{{ tot_h }} in total</div>
+      <div class="stat">{{ tot_h_to_todo }} to do</div>
+      <div class="stat">{{ tot_h_done }} done</div>
+      <div class="stat"># {{ nr_workouts }} workouts in total</div>
+      <div class="stat"># {{ nr_workouts_todo }} workouts todo </div>
+      <div class="stat"># {{ nr_workouts_done }} workouts done </div>
+    </div>
+
+    <p class="mb-5 text-muted text-sm">
+      {% if diff_to_prev_week < 0 %} <span class="text-danger mr-2"><i class="fa fa-arrow-down"></i>
+        {{ diff_to_prev_week }}%</span>
+        {% elif diff_to_prev_week == 0 %}
+        <span class="text-secondary mr-2">- {{ diff_to_prev_week }}%</span>
+        {% else %}
+        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ diff_to_prev_week }}%</span>
+        {% endif %}
+        <span class="text-nowrap">Since last week</span>
+    </p>
+
+  </div>
+
+
+  <div class="routine-container">
+    {% for day_routine in weekly_routines %}
+    <!-- ===================================================== >> SIDE DOTS -->
+
+    <div class="dot-container my-5">
+      <span class="dot mx-2 "></span>
+      <span class="dot mx-2 "></span>
+      <span class="dot mx-2 "></span>
+    </div>
+
+    <div class="day-container">
+
+      <div class="timeline">
+        <div class="lines">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+
+      <div class="content">
+        <!-- ===================================================== >> TITLE -->
+        <div class="title-container  {% if day_routine.date == today %} highlight {% endif %}">
+          <div class="routine-title">
+            {{ day_routine }}
+            <div class="edit-routine">
+              <a href="{ url 'admin:routine_daily_change' day_routine.id %}" target="_blank">
+                  <i class="fas fa-edit routine-btn"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            {% for workout_plan in day_routine.workoutplan_set.all %}
+            {% if workout_plan.done %}
+            <i class="fas fa-fire-alt check"></i>
+            {% else %}
+            <i class="fas fa-fire-alt icon-grey"></i>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <div>
+            <small>
+              {% if day_routine.get_workouts_tot_time %}
+              {{ day_routine.get_workouts_tot_time }}'
+              {% else %}
+              <i class="fas fa-wind no-time"></i>
+              {% endif %}
+            </small>
+          </div>
+        </div>
+
+        <hr>
+        <!-- ==================================================== >> VIDEOS -->
+        <div class="content-container">
+
+          {% for workout_plan in day_routine.workoutplan_set.all %}
+          <div class="video-container ">
+
+            <div class="video-title">
+              <small>{{ workout_plan.workout.source.name }}</small>
+              {% if workout_plan.done %}
+              <small><i class="fas fa-fire-alt check"></i></small>
+              {% endif %}
+            </div>
+            <div class="video-title">
+
+              <div class="workout-name">{{ workout_plan.workout.name }} </div>
+              <div class="m-1">
+                <a href="{% url 'admin:workout_workoutplan_change' workout_plan.id %}" target="_blank">
+                  <i class="fas fa-book workout-btn" title="edit workout"></i>
+                </a>
+              </div>
+              <div class="m-1">
+                <a href="{% url 'admin:workout_workout_change' workout_plan.workout.id %}" target="_blank">
+                  <i class="fas fa-edit  workout-btn" title="edit workout plan"></i>
+                </a>
+              </div>
+            </div>
+            {% if workout_plan.workout.url %}
+            <iframe width="268" height="148" src="{{ workout_plan.workout.url }}" title="YouTube video player"
+              frameborder="0" class="video-frame"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            {% else %}
+            <div >
+              <img class="video-placeholder" alt="video placeholder" src="{% static 'assets/img/video-placeholder.jpg' %}" />
+            </div>
+            {% endif %}
+
+            <div class="workout-data-container">
+              <div class="icon">
+                {% if workout_plan.workout.stars >= 3 %}
+                <i class="fas fa-heart favorite"></i>
+                {% else %}
+                <i class="far fa-heart icon-grey"></i>
+                {% endif %}
+              </div>
+
+              <div class="workout-types">
+                {{ workout_plan.workout.get_workout_types }}
+              </div>
+              <div class="workout-duration">
+                {{ workout_plan.workout.time_in_min }}'
+              </div>
+            </div>
+
+
+          </div>
+          {% empty %}
+          <div class="rest-day">
+            <img class="lazy-img" src="{% static 'assets/img/lazy.svg' %}" />
+          </div>
+
+          {% endfor %}
+
+        </div>
+      </div>
+
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+
+</div>
+
+
+
+{% endblock %}
