@@ -1,0 +1,258 @@
+/*95d6c3*/
+
+#header {
+    background: #545871;
+    /* first bar background color */
+    color: #fff;
+}
+
+#branding h1 {
+    /* first bar title color */
+    color: #fff;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #ffffff;
+}
+
+a:link {
+    color: #43657c;
+}
+
+/*
+a:visited {
+    color: purple;
+}*/
+
+/* color of second bar */
+
+div.breadcrumbs {
+    background: #f0f1f6;
+    color: #64687c;
+    font-weight: bolder;
+}
+
+div.breadcrumbs a {
+    color: #3d372d;
+    /* pre models in bar */
+}
+
+/* bar for models overview*/
+.module h2, .module caption, .inline-group h2 {
+    background: #f7ebeb;
+    border-radius: 5px;
+    color: #64687c;
+}
+
+/* eg history button*/
+.object-tools a:link, .object-tools a:visited {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    background: #417690;
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #f0f1f6;
+}
+
+/* eg history button:hover*/
+.object-tools a:link:hover, .object-tools a:visited:hover {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    background: #64687c;
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+
+.object-tools a:focus, .object-tools a:hover {
+    background-color: #999;
+}
+
+.icon-color-size {
+    min-width: 100px;
+}
+
+/* current selected model in sidebar*/
+#nav-sidebar .current-model {
+    background: #a9b1bd65;
+}
+
+/* color font of model bar selected*/
+
+#nav-sidebar .current-app .section:link, #nav-sidebar .current-app .section:visited {
+    color: #343748;
+    font-weight: bolder;
+}
+
+.object-tools a:link, .object-tools a:visited {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    background: #f0f1f6;
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64687c;
+}
+
+/*other buttons that r not save*/
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #64687c;
+    background-color: #f0f1f6;
+}
+
+/*other buttons that r not save*/
+.button, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #64687c;
+}
+
+/* eg btn save*/
+.button.default, input[type=submit].default, .submit-row input.default {
+    float: right;
+    border: none;
+    font-weight: 400;
+    background: #f7ebeb;
+    color: #64687c;
+}
+
+/* eg btn save*/
+.button.default, input[type=submit].default:hover, .submit-row:hover input.default:hover {
+    float: right;
+    border: none;
+    font-weight: 400;
+    background: #64687c;
+    color: #fff;
+}
+
+/* # success message color */
+
+ul.messagelist li {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 10px 10px 10px 65px;
+    margin: 0 0 10px 0;
+    background: rgba(227, 255, 70, 0.411) url(/static/admin/img/icon-yes.svg) 40px 12px no-repeat;
+    background-size: 16px auto;
+    color: #333;
+}
+
+a.section:link, a.section:visited {
+    color: #64687c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.warning {
+    background: #F2AE43;
+}
+
+.background-red {
+    background-color: rgb(250, 209, 209);
+}
+
+.background-green {
+    background-color: rgb(209, 250, 244);
+}
+
+.workout {
+    background-color: rgb(221, 255, 245);
+}
+
+.study {
+    background-color: rgb(255, 238, 246);
+}
+
+.green {
+    color: rgb(7, 179, 127);
+}
+
+.red {
+    color: rgb(179, 47, 7);
+}
+
+.grey {
+    color: rgb(156, 156, 156);
+}
+
+/*
+.btn-secondary {
+    background-color: #f7ebeb !important;
+    color: #545871;
+}*/
+
+.btn-secondary {
+    color: #64687c;
+    background-color: #f0f1f6;
+    border-color: #f0f1f6;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    color: #ffffff;
+    background-color: #64687c;
+    border-color: #64687c;
+}
+
+.btn-primary {
+    color: #c37d7b;
+    background-color: #faeceb;
+    border-color: #faeceb;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    background-color: #c37d7b;
+    border-color: #c37d7b;
+}
+
+
+.submit-row {
+    padding: 12px 14px;
+    margin: 0 0 20px;
+    background:white !important;
+    border: 2px solid #64687c;
+    border-radius: 4px;
+    text-align: right;
+    overflow: hidden;
+}
+
+
+.icon-background {
+    color: #f7ebeb;
+}
+
+.icon-color {
+    color: #c37d7b;
+}
+
+.icon-done-background {
+    color: #e9f8f1;
+}
+
+.icon-done-color {
+    color: #10613b;
+}
+
+
+/* this is for the admin edit form in body measurement */
+#result_list input[type=number] {
+    width: 42px;
+}
