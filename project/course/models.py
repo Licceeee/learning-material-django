@@ -27,7 +27,8 @@ class Teacher(Timestamps):
 
 
 class Course(Timestamps):
-    category = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category, default=None, null=True,
+                                 on_delete=models.CASCADE)
     title = models.CharField(max_length=100, unique=True)
     description = models.TextField(null=True, blank=True)
     teacher = models.ForeignKey(Teacher, default=None, null=True,
