@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from course.models import (Category, Course, Lesson, Docs)
+from course.models import (Category, Course, Lesson)
 
 
 class CategoryListView(ListView):
