@@ -1,34 +1,68 @@
-{% extends 'core/base.html' %}
+{% extends 'course/base.html' %}
 {% load static %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row p-0">
-        <h1>Coursi worsi</h1>
-        <div class="col-12 p-0 mb-3 text-center d-flex justify-content-center">
-            <input type="text" class="form-control custom-input" aria-label="Sizing example input"
-                placeholder="Search Course..." aria-describedby="inputGroup-sizing-lg" />
-        </div>
-        <a href="{% url 'admin:logout' %}" class="btn btn-danger text-white">
-            Logout
-        </a>
-        {% if user.is_staff %}
-        <a href="{% url 'admin:index' %}" class="btn btn-danger text-white">
-            Admin Area
-        </a>
-        {% endif %}
+<!-- # TODO <div class="col-12 p-4 mb-3 text-center d-flex justify-content-center">
+    <input type="text" class="form-control custom-input" aria-label="Sizing example input"
+        placeholder="Search Course..." aria-describedby="inputGroup-sizing-lg" />
+</div>  -->
 
-
-        {% for category in object_list %}
-        <div class="col-12 col-md-6 col-xl-3 border my-1 py-2 p-0">
-            <h3>{{ category.name }}</h3>
-            <a href="{% url 'course-list' category.id %}" class="btn btn-danger text-white mr-0">
-                View
-            </a>
-        </div>
-        {% endfor %}
-    </div>
+<div class="p-4">
+    <h6>
+        All the coursis of the ciupini
+    </h6>
 </div>
+
+<div class="mb-3 p-3">
+    <a href="{% url 'course-list' %}" class="button-secondary">
+        🌴 Click here to explore all the courses 🌴
+    </a>
+</div>
+
+<div class="m-5">
+    <h6 class="hr-with-text"><span>🥥 or browse the categories 🥥</span></h6>
+</div>
+<div class="center-content">
+    {% for category in object_list %}
+    <div class="col-12 col-md-6 col-xl-3 p-3">
+        <div class="container  category-box p-3">
+            <div class="p-2">
+                {% if category.icon_source %}
+                <img class="course-img" src="{{ category.icon_source }}" alt="">
+                {% else %}
+                <img class="course-img"
+                    src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/3014222/settings_images/A2u4YGGSTmfF62twaW1U_Commune_Brand_Vertical_Icons_Growth.png"
+                    alt="">
+                {% endif %}
+            </div>
+
+            <h3>{{ category.name }}</h3>
+            <h6 class="mb-3 corsivo">{{ category.course_set.all|length }}
+                {% if category.course_set.all|length == 1 %}
+                course
+                {% else%}
+                courses
+                {% endif %}
+            </h6>
+            <div class="pb-3 course-description">
+                <p>
+                    {{ category.description }}
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <a href="{% url 'course-list' category.id %}" class="button-primary">
+                    Explore courses
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+    {% endfor %}
+</div>
+{% include "course/_partials/admin_or_logout.html" %}
 
 {% endblock %}
