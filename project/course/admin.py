@@ -18,7 +18,7 @@ class DocsInlineAdmin(SortableInlineAdminMixin, admin.StackedInline):
 class CourseAdmin(admin.ModelAdmin):
     inlines = [LessonInlineAdmin, DocsInlineAdmin]
     search_fields = ['title', 'teacher']
-    list_display = ('title', 'teacher', 'created', 'updated')
+    list_display = ('title', 'teacher', 'folder_name', 'created', 'updated')
     list_filter = ('title', 'teacher')
     autocomplete_fields = ['teacher', 'category']
     readonly_fields = ('created', 'updated')

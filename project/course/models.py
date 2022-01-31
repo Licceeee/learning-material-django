@@ -32,6 +32,7 @@ class Course(Timestamps):
     description = models.TextField(null=True, blank=True)
     teacher = models.ForeignKey(Teacher, default=None, null=True,
                                 on_delete=models.CASCADE)
+    folder_name = models.CharField(max_length=100, unique=True, null=True)
     intro_video = models.CharField(max_length=500, blank=True, null=True)
     intro_image = models.CharField(max_length=500, blank=True, null=True)
 
