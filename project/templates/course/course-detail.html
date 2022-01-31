@@ -16,9 +16,12 @@
         <div class="col-12 col-md-6 col-xl-3 border my-1 py-2 p-0">
             <h3>{{ lesson.title }}</h3>
             {% if lesson.url %}
-            <video width="300" controls>
-                <source src="{{ MEDIA_URL }}{{ lesson.course.title}}/{{  lesson.url }}" type="video/mp4">
+            <video width="600" controls>
+                <!-- <source src="{ MEDIA_URL }}{{ lesson.course.title}}/{{  lesson.url }}" type="video/mp4"> -->
+                <source src="{{ MEDIA_URL }}/{{  lesson.url }}" type="video/mp4">
             </video>
+
+
             {% endif %}
 
         </div>
@@ -31,5 +34,6 @@
             Back
         </a>
     </div>
+
 </div>
 {% endblock %}
