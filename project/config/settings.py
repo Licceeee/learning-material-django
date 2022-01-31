@@ -131,6 +131,9 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'de')
 
+LOGIN_URL = '/admin/login/?next=/'
+LOGIN_REDIRECT_URL = 'course-list'
+LOGOUT_REDIRECT_URL = '/admin/login/?next=/'
 
 LANGUAGE_CODE = 'en-us'
 
