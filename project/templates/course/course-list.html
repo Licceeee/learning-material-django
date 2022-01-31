@@ -14,11 +14,30 @@
 
 
     <div class="col-12 col-md-6 col-xl-3 p-3">
-        <div class="container category-box p-3">
-            <h2>{{ course.title }}</h2>>
+        <div class="course-box category-box p-3">
+            <div class="mb-3">
+                <img class="course-intro"
+                    src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/3014222/settings_images/A2u4YGGSTmfF62twaW1U_Commune_Brand_Vertical_Icons_Growth.png"
+                    alt="">
+            </div>
+            <div class="course-title">
+                <h5><strong>{{ course.title }}</strong></h5>
+            </div>
+
+            <h6 class="corsivo small-p">with {{ course.teacher }}</h6>
+            <div class="course-description">
+                <p>{{ course.description }}</p>
+            </div>
+
+            <div class="mb-3">
+                <a href="{% url 'course-detail' course.id %}" class="button-primary">
+                    Take course
+                </a>
+            </div>
+
         </div>
     </div>
-   {% endfor %}
+    {% endfor %}
 
 </div>
 
