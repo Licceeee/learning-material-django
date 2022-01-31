@@ -2,6 +2,19 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import ugettext_lazy as _
+from core.models import Timestamps  # noqa
+from uuid import uuid4
+from core.libs.core_libs import (get_headshot_image, get_image_format)
+
+
+def img_dir_path(instance, filename):
+    ext = filename.split('.')[-1]
+    if instance.pk:
+        filename = f'{instance.pk}.{ext}'
+    else:
+        # set filename as random string
+        filename = f'{uuid4().hex}.{ext}'
+    return (f'user/{filename}')
 
 
 class CustomUserManager(BaseUserManager):
@@ -38,17 +51,12 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(
-        verbose_name='email address',
-        max_length=255,
-        unique=True,
-    )
+    email = models.EmailField(verbose_name='email address', max_length=255,
+                              unique=True)
     first_name = models.CharField(max_length=255, null=True,
                                   verbose_name=_("Firstname"))
     last_name = models.CharField(max_length=255, null=True,
                                  verbose_name=_("Lastname"))
-    phone = models.CharField(max_length=20, null=True,
-                             verbose_name=_("Phone"))
     username = None
 
     USERNAME_FIELD = 'email'
