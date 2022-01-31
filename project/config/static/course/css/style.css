@@ -1,3 +1,5 @@
+
+
 html {
   margin: 0;
   padding: 0;
@@ -60,7 +62,7 @@ h1, h2, h3, h4, h5, h6, p {
   font-style: italic;
 }
 
-.course-description {
+.category-description {
   min-height: 11rem;
 }
 
@@ -104,4 +106,35 @@ h1, h2, h3, h4, h5, h6, p {
 .hr-with-text span { 
   background:#f4efea; 
   padding:0 10px; 
+}
+
+.course-box {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: stretch;
+  text-align: left;
+}
+
+
+.course-intro {
+  height: 170px;
+  width: 100%;
+  background-color: #551616;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.course-title {
+  min-height: 4rem;
+}
+
+.course-description {
+  min-height: 14rem;
+}
+
+.small-p {
+  font-size: 14px;
 }
