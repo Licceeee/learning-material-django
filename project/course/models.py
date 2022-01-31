@@ -1,10 +1,11 @@
 from django.db import models
 from core.models import Timestamps
-from django.core.validators import URLValidator
 
 
 class Category(Timestamps):
     name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(null=True)
+    icon_source = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta:
         verbose_name = "Category"
@@ -28,8 +29,11 @@ class Teacher(Timestamps):
 class Course(Timestamps):
     category = models.ManyToManyField(Category)
     title = models.CharField(max_length=100, unique=True)
+    description = models.TextField(null=True, blank=True)
     teacher = models.ForeignKey(Teacher, default=None, null=True,
                                 on_delete=models.CASCADE)
+    intro_video = models.CharField(max_length=500, blank=True, null=True)
+    intro_image = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta(object):
         verbose_name = "Course"

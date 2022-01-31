@@ -27,7 +27,7 @@ class CourseAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['name']
-    list_display = ('name', 'created', 'updated')
+    list_display = ('name', 'description', 'created', 'updated')
     readonly_fields = ('created', 'updated')
 
 
