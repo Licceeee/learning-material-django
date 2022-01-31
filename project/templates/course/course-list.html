@@ -1,28 +1,28 @@
-{% extends 'core/base.html' %}
+{% extends 'course/base.html' %}
 {% load static %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row p-0">
-        <div class="col-12 p-0 mb-3 text-center d-flex justify-content-center">
-            <input type="text" class="form-control custom-input" aria-label="Sizing example input"
-                placeholder="Search Course..." aria-describedby="inputGroup-sizing-lg" />
-        </div>
-        <a href="{% url 'admin:logout' %}" class="btn btn-danger text-white mr-0">
-            Logout
-        </a>
-
-        {% for course in object_list %}
-        <div class="col-12 col-md-6 col-xl-3 border my-1 py-2 p-0">
-            <h3>{{ course.title }}</h3>
-            <h3>{{ course.id }}</h3>
-            <a href="{% url 'course-detail' course.id %}" class="btn btn-danger text-white mr-0">
-                View
-            </a>
-        </div>
-        {% endfor %}
-    </div>
+<div class="p-4">
+    <h4>{{ title }}</h4>
 </div>
+
+
+<div class="center-content">
+
+    {% for course in courses %}
+
+
+    <div class="col-12 col-md-6 col-xl-3 p-3">
+        <div class="container category-box p-3">
+            <h2>{{ course.title }}</h2>>
+        </div>
+    </div>
+   {% endfor %}
+
+</div>
+
+
+{% include "course/_partials/admin_or_logout.html" %}
 
 {% endblock %}
