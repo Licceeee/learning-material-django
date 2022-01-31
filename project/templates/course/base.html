@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'course/_partials/head.html' %}
+
+
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="p-0">
+                <a href="{% url 'category-list' %}" class="page-name">
+                    <h1> 🌞 Coursi worsis 🌞</h1>
+                </a>
+
+
+                {% block content %} {% endblock %}
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% include 'course/_partials/footer.html' %}
+
+</html>
