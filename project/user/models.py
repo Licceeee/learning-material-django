@@ -4,7 +4,7 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from core.models import Timestamps  # noqa
 from uuid import uuid4
-from core.libs.core_libs import (get_headshot_image, get_image_format)
+from core.libs.core_libs import (get_image_format)
 
 
 def img_dir_path(instance, filename):
