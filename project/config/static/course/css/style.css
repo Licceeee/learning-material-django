@@ -1,5 +1,3 @@
-
-
 html {
   margin: 0;
   padding: 0;
@@ -40,7 +38,6 @@ body .custom-input {
   color: white;
 }
 
-
 .category-box {
   border: #295563 3px solid;
   border-radius: 5px;
@@ -54,7 +51,13 @@ body .custom-input {
   max-width: auto;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   color: #5b5b5b;
 }
 
@@ -68,11 +71,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 .center-content {
   display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: stretch;
-	align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
 }
 
 .page-name {
@@ -96,28 +99,27 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .hr-with-text {
-  width: 100%; 
-  text-align: center; 
-  border-bottom: 1px solid ; 
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid;
   line-height: 0.1em;
-  margin: 10px 0 20px; 
-} 
+  margin: 10px 0 20px;
+}
 
-.hr-with-text span { 
-  background:#f4efea; 
-  padding:0 10px; 
+.hr-with-text span {
+  background: #f4efea;
+  padding: 0 10px;
 }
 
 .course-box {
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: stretch;
   text-align: left;
 }
-
 
 .course-intro {
   height: auto;
@@ -126,12 +128,13 @@ h1, h2, h3, h4, h5, h6, p {
   margin-left: auto;
   margin-right: auto;
 }
-.course-title {
-  min-height: 4rem;
-}
 
-.course-description {
-  min-height: 14rem;
+.course-intro-image {
+  height: 145px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .small-p {
@@ -141,3 +144,33 @@ h1, h2, h3, h4, h5, h6, p {
 .capitalize {
   text-transform: capitalize;
 }
+
+.course-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  margin-bottom: 2rem;
+}
+
+.course-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 1rem;
+}
+
+.course-title:hover, .course-description:hover {
+  text-overflow: unset;
+  display: unset;
+}
+
+/* .course-description:hover, .course-title:hover {
+  text-overflow: unset;
+  display: contents;
+} */
