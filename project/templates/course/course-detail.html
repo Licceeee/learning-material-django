@@ -4,48 +4,53 @@
 {% block content %}
 
 
-<div class="container">
-    <div class="row p-0">
 
-        <div class="col-12">
-            <h1>{{ object }}</h1>
-            <h2>Lessons: {{ percentage }}</h2>
+
+<div class="col-12">
+    <h4 class="p-2">{{ object.title }}</h4>
+    <h6 class="corsivo p-2"># Lessons: {{ nr_lessons }}</h6>
+</div>
+
+
+
+<!-- Section docs -->
+{% for doc in object.coursedoc_set.all %}
+<div class="p-3">
+    <a href="{{ MEDIA_URL }}{{ doc.file }}" target="blank_">
+        <img class="pdf-img" src="{% static 'assets/img/pdf-1.png' %}" />
+
+    </a>
+</div>
+
+{% endfor %}
+<div class="content-left">
+
+    {% for lesson in object.lesson_set.all %}
+
+    <div class="col-12 col-md-6 col-xl-3 p-3">
+        <div class="course-box lesson-box p-3">
+            <div class="mb-3">
+                <video class="course-intro" controls>
+                    <source
+                        src="{{ MEDIA_URL }}courses/{{ lesson.course.category.name }}/{{ lesson.course.folder_name }}/{{  lesson.url }}"
+                        type="video/mp4">
+                </video>
+            </div>
+            <div class="course-box">
+                <div class="course-title">
+                    <h5><strong>{{ lesson.title }}</strong></h5>
+                </div>
+            </div>
+
         </div>
-
-        {% for lesson in object.lesson_set.all %}
-        <div class="col-12 col-md-6 col-xl-3 border my-1 py-2 p-0">
-            <h3>{{ lesson.title }}</h3>
-            {% if lesson.url %}
-            <video width="600" controls>
-                <!-- <source src="{ MEDIA_URL }}{{ lesson.course.title}}/{{  lesson.url }}" type="video/mp4"> -->
-                <source src="{{ MEDIA_URL }}/{{  lesson.url }}" type="video/mp4">
-            </video>
-
-<!-- 
-            <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
-                poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
-                <source src="{{ MEDIA_URL }}/{{  lesson.url }}" type="video/mp4" />
-                <source src="{{ MEDIA_URL }}/{{  lesson.url }}" type="video/webm" />
-                <p class="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a
-                    web browser that
-                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                </p>
-            </video> -->
-
-
-            {% endif %}
-
-        </div>
-        {% endfor %}
-
-        <hr />
-
-
-        <a href="{ url 'topics' %}" class="btn btn-danger text-white mr-0">
-            Back
-        </a>
     </div>
+    {% endfor %}
+
+    <hr />
 
 </div>
+{% include "course/_partials/btn-back.html" %}
+
+{% include "course/_partials/admin_or_logout.html" %}
+
 {% endblock %}
