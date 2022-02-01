@@ -156,6 +156,7 @@ p {
 }
 
 .course-title {
+  min-height: 4rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -174,3 +175,26 @@ p {
   text-overflow: unset;
   display: contents;
 } */
+
+
+.content-left {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: space-around;
+}
+
+.lesson-box {
+  border: #b17654 3px solid;
+  border-radius: 5px;
+  background-color: white;
+  color: #5b5b5b;
+  /* #5b5b5b */
+}
+
+.pdf-img {
+  max-height: 70px;
+  width: auto;
+}
