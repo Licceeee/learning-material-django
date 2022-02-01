@@ -57,7 +57,7 @@ class CourseDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         # Showcase Section Infos
         context['title'] = "Course Overview"
-        context['percentage'] = self.object.count_videos
+        context['nr_lessons'] = self.object.count_videos
         # SEO
         context['page_title'] = "Course Overview"
         context['page_description'] = "Overview of the course"
