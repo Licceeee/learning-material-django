@@ -9,6 +9,6 @@ urlpatterns = [
          name='course-list'),
     path('courses/', login_required(CourseListView.as_view()),
          name='course-list'),
-    path('<int:pk>', CourseDetailView.as_view(),
+    path('courses/<int:pk>', CourseDetailView.as_view(),
          name='course-detail'),
 ]
