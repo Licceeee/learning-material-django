@@ -85,21 +85,3 @@ class CourseDoc(Timestamps):
     def __str__(self):
         return f"{self.title}"
 
-
-class LessonDoc(Timestamps):
-    title = models.CharField(max_length=100, unique=True)
-    lesson = models.ForeignKey(Lesson, default=None, null=True,
-                               on_delete=models.CASCADE)
-    sortable_inline_order = models.PositiveIntegerField(default=0, blank=False,
-                                                        null=False)
-    file = models.FileField(default=None,
-                            upload_to='uploads/',
-                            null=True, blank=True)
-
-    class Meta(object):
-        verbose_name = "Lesson Doc"
-        verbose_name_plural = "Lesson Docs"
-        ordering = ['sortable_inline_order']
-
-    def __str__(self):
-        return f"{self.title}"
