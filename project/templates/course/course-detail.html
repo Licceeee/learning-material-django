@@ -15,7 +15,7 @@
 
 <!-- Section docs -->
 {% for doc in object.coursedoc_set.all %}
-<div class="p-3">
+<div class="p-3 border content-left">
     <a href="{{ MEDIA_URL }}{{ doc.file }}" target="blank_">
         <img class="pdf-img" src="{% static 'assets/img/pdf-1.png' %}" />
 
@@ -29,6 +29,7 @@
 
     <div class="col-12 col-md-6 col-xl-3 p-3">
         <div class="course-box lesson-box p-3">
+            <div class="day">Day 1</div>
             <div class="mb-3">
                 <video class="course-intro" controls>
                     <source
