@@ -16,32 +16,41 @@
     <div class="col-12 col-md-6 col-xl-3 p-3">
         <div class="course-box category-box p-3">
             <div class="mb-3">
-                {% if course.intro_video %}
+                <img class="course-intro-image"
+                    src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/3014222/settings_images/A2u4YGGSTmfF62twaW1U_Commune_Brand_Vertical_Icons_Growth.png"
+                    alt="intro">
+                <!-- {% if course.intro_video %}
                 <video class="course-intro" controls>
                     <source
                         src="{{ MEDIA_URL }}courses/{{ course.category.name }}/{{ course.folder_name }}/{{ course.intro_video }}"
                         type="video/mp4">
                 </video>
-                {% else %}
-                <img class="course-intro-image"
-                    src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/3014222/settings_images/A2u4YGGSTmfF62twaW1U_Commune_Brand_Vertical_Icons_Growth.png"
-                    alt="intro">
-                {% endif %}
+                {% else %} -->
+
+                <!-- {% endif %} -->
             </div>
             <div class="course-box">
-                <div class="course-title">
+                <div class="course-title mb-0">
                     <h5><strong>{{ course.title }}</strong></h5>
                 </div>
 
                 <h6 class="corsivo small-p">with {{ course.teacher }}</h6>
-                <div class="course-description">
+                <div class="nr-lessons my-2">
+                    <small>{{ course.lesson_set.all|length }} lessons</small>
+                </div>
+                <div class="course-description my-2">
                     <p>{{ course.description }}</p>
                 </div>
 
-                <div class="mb-3">
-                    <a href="{% url 'course-detail' course.id %}" class="button-primary">
-                        Take course
-                    </a>
+
+
+                <div class="container center-content py-4">
+                    <div>
+                        <a href="{% url 'course-detail' course.id %}" class="button-primary">
+                            Take course
+                        </a>
+                    </div>
+                   
                 </div>
             </div>
 
