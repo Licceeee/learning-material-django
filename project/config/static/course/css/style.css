@@ -6,7 +6,7 @@ html {
 
 body {
   background-color: #f4efea;
-  color: #551616;
+  color: #5b5b5b;
 }
 
 body .main {
@@ -45,16 +45,6 @@ body .custom-input {
   color: #5b5b5b;
   /* #5b5b5b */
 }
-
-.category-box-alignment {
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: stretch;
-}
-
 
 .course-img {
   max-height: 5rem;
@@ -196,7 +186,7 @@ p {
 }
 
 .lesson-box {
-  border: #b17654 3px solid;
+  border: #295563 3px solid;
   border-radius: 5px;
   background-color: white;
   color: #5b5b5b;
@@ -222,7 +212,7 @@ p {
 }
 
 .day {
-  background-color: #94c2c6;
+  background-color: #DE7321;
   position:absolute;
   right:10px;
   top: 10px;
@@ -230,4 +220,17 @@ p {
   color: white;
   padding: 5px;
   border-radius: 20px;
+}
+
+.docs-box {
+  border: #a6d0dd 3px solid;
+}
+
+.docs {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
 }
