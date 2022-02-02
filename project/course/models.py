@@ -73,6 +73,7 @@ class CourseDoc(Timestamps):
                                on_delete=models.CASCADE)
     sortable_inline_order = models.PositiveIntegerField(default=0, blank=False,
                                                         null=False)
+    day = models.IntegerField(null=True, blank=True)
     file = models.FileField(default=None,
                             upload_to='uploads/',
                             null=True, blank=True)
@@ -84,4 +85,3 @@ class CourseDoc(Timestamps):
 
     def __str__(self):
         return f"{self.title}"
-
