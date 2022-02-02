@@ -14,15 +14,38 @@
 
 
 <!-- Section docs -->
-{% for doc in object.coursedoc_set.all %}
-<div class="p-3 border content-left">
-    <a href="{{ MEDIA_URL }}{{ doc.file }}" target="blank_">
-        <img class="pdf-img" src="{% static 'assets/img/pdf-1.png' %}" />
 
-    </a>
+<div class="p-2">
+    <div class="course-material-title pb-3">
+        <h6>Course Material</h6>
+    </div>
+
+    <div class="content-left docs-box">
+        {% for doc in object.coursedoc_set.all %}
+        <div class="docs">
+
+            <a href="{{ MEDIA_URL }}{{ doc.file }}" target="blank_">
+                <img class="pdf-img" src="{% static 'assets/img/pdf-1.png' %}" />
+            </a>
+            <div>
+                <small>
+                    {{ doc.title }}
+                </small>
+            </div>
+            {% if doc.day %}
+            <small class="mini">
+                Day {{ doc.day }}
+            </small>
+            {% else %}
+             <p></p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
-{% endfor %}
+<hr>
+
 <div class="content-left">
 
     {% for lesson in object.lesson_set.all %}
