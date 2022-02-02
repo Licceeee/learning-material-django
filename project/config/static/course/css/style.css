@@ -152,7 +152,6 @@ p {
   -webkit-line-clamp: 5; /* number of lines to show */
   line-clamp: 5;
   -webkit-box-orient: vertical;
-
 }
 
 .course-title {
@@ -161,11 +160,12 @@ p {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-          line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
-.course-title:hover, .course-description:hover {
+.course-title:hover,
+.course-description:hover {
   text-overflow: unset;
   display: unset;
 }
@@ -175,14 +175,13 @@ p {
   display: contents;
 } */
 
-
 .content-left {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: space-around;
 }
 
 .lesson-box {
@@ -204,7 +203,7 @@ p {
 }
 
 .button-center-div {
-	/* display: flex;
+  /* display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -212,9 +211,9 @@ p {
 }
 
 .day {
-  background-color: #DE7321;
-  position:absolute;
-  right:10px;
+  background-color: #de7321;
+  position: absolute;
+  right: 10px;
   top: 10px;
   z-index: 1;
   color: white;
@@ -223,14 +222,32 @@ p {
 }
 
 .docs-box {
-  border: #a6d0dd 3px solid;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: flex-start;
 }
 
 .docs {
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+  margin-right: 4rem;
+}
+
+.mini {
+  font-size: 12px;
+  width: 100%;
+  /* text-align: left; */
+}
+
+.course-material-title {
+  width: 100%;
+  text-align: left;
+  text-transform: uppercase;
 }
