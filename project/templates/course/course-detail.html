@@ -6,8 +6,11 @@
 
 
 
-<div class="col-12">
+<div class="col-12 p-5">
     <h4 class="p-2">{{ object.title }}</h4>
+    <div class="px-5">
+        {{ object.description }}
+    </div>
 </div>
 
 
@@ -59,7 +62,7 @@
 
                 <video controls width="250" preload="metadata">
                     <source
-                        src="{{ MEDIA_URL }}courses/{{ lesson.course.category.name }}/{{ lesson.course.folder_name }}/{{  lesson.url }}#t=0.5"
+                        src="{{ MEDIA_URL }}courses/{{ lesson.course.category.name }}/{{ lesson.course.folder_name }}/{{  lesson.url }}#t=0.3"
                         type="video/mp4">
 
 
