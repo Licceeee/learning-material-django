@@ -60,7 +60,7 @@
             {% endif %}
             <div class="mb-3">
 
-                <video controls width="250" preload="metadata">
+                <video controls class="course-intro" preload="metadata">
                     <source
                         src="{{ MEDIA_URL }}courses/{{ lesson.course.category.name }}/{{ lesson.course.folder_name }}/{{  lesson.url }}#t=0.3"
                         type="video/mp4">
