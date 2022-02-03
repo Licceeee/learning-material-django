@@ -8,21 +8,26 @@
         placeholder="Search Course..." aria-describedby="inputGroup-sizing-lg" />
 </div>  -->
 
-<div class="p-4">
+<div class="pb-3">
     <h6>
         All the coursis of the ciupini
     </h6>
 </div>
 
-<div class="mb-3 p-3">
-    <a href="{% url 'course-list' %}" class="button-secondary">
+<div class="mb-2 p-3">
+    <a href="{% url 'course-list' %}" class="btn btn-secondary btn-lg">
         🌴 Click here to explore all the courses 🌴
     </a>
 </div>
 
-<div class="m-5">
-    <h6 class="hr-with-text"><span>🥥 or browse the categories 🥥</span></h6>
+<div class="all-categories-text-container">
+    <h6 class="hr-with-text">
+        <span>🥥 or browse the categories 🥥</span>
+    </h6>
 </div>
+
+{% include "course/_partials/arrow-down.html" %}
+
 <div class="center-content">
     {% for category in object_list %}
     <div class="col-12 col-md-6 col-xl-3 p-3">
@@ -52,7 +57,7 @@
             </div>
 
             <div class="mb-3">
-                <a href="{% url 'course-list' category.id %}" class="button-primary">
+                <a href="{% url 'course-list' category.id %}" class="btn btn-primary btn-lg">
                     Explore courses
                 </a>
             </div>
@@ -63,6 +68,7 @@
     </div>
     {% endfor %}
 </div>
+<hr>
 {% include "course/_partials/admin_or_logout.html" %}
 
 {% endblock %}
