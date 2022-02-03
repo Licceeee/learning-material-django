@@ -18,34 +18,29 @@ class CourseListView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        def get_title():
-            try:
-                if self.kwargs['category_id']:
-                    category = Category.objects.get(
-                        id=self.kwargs['category_id'])
-                    return category.name
-            except Exception:
-                return "All courses"
-            return "All courses"
-
         def get_category_id_from_params():
             try:
                 return self.kwargs['category_id']
             except Exception:
-                return 0
+                return None
 
-        def get_courses():
+        def get_category_infos():
+            """Return title, description, courses of category"""
             category_id = get_category_id_from_params()
-            if category_id > 0:
+            if category_id:
                 try:
-                    return Course.objects.filter(category=category_id)
-                except Exception as e:
-                    print(f"  ----------- babafucker {e}")
-                    return Course.objects.all()
-            return Course.objects.all()
+                    category = Category.objects.get(
+                        id=category_id)
+                    return (category.name, category.description,
+                            Course.objects.filter(category=category_id))
+                except Exception:
+                    pass
+            return ("All courses", "Browse through all the courses",
+                    Course.objects.all())
 
-        context['title'] = get_title()
-        context['courses'] = get_courses()
+        context['title'] = get_category_infos()[0]
+        context['description'] = get_category_infos()[1]
+        context['courses'] = get_category_infos()[2]
         return context
 
 
