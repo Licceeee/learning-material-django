@@ -73,7 +73,7 @@ class Course(Timestamps):
 
 
 class Lesson(Timestamps):
-    title = models.CharField(max_length=100, unique=True)
+    title = models.CharField(max_length=100)
     course = models.ForeignKey(Course, default=None, null=True,
                                on_delete=models.CASCADE)
     day = models.IntegerField(null=True, blank=True)
