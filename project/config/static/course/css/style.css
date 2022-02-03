@@ -1,7 +1,6 @@
 html {
   margin: 0;
   padding: 0;
-  /* box-sizing: reset; */
 }
 
 body {
@@ -9,54 +8,53 @@ body {
   color: #5b5b5b;
 }
 
-body .main {
+.main {
   padding: 2% 0;
   text-align: center;
 }
 
-body .custom-input {
+.custom-input {
   width: 50%;
 }
 
 .video-player {
   height: 70vh;
 }
-/*# sourceMappingURL=style.css.map */
 
 .btn-primary {
-  border-color: #56797c;
-  background-color: #56797c;
-  color: white;
+  border-color: #94c2c6;
+  background-color: #94c2c6;
+  color: #fff;
   /* text-align: center;
-  padding: 15px;
-  border-radius: 10px;
-  text-decoration: none; */
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none; */
 }
 
 .btn-primary:hover {
-  border-color: #94c2c6;
-  background-color: #94c2c6;
-  color: white;
+  border-color: #56797c;
+  background-color: #56797c;
+  color: #fff;
 }
 
 .btn-secondary {
   border-color: #b17654;
   background-color: #b17654;
-  color: white;
+  color: #fff;
 }
 
 .btn-secondary:hover {
   border-color: #8b5a3e;
   background-color: #8b5a3e;
-  color: white;
+  color: #fff;
 }
 
 .category-box {
   border: #295563 3px solid;
   border-radius: 5px;
-  background-color: white;
+  background-color: #fff;
   color: #5b5b5b;
-  /* #5b5b5b */
+  /* $font-color */
 }
 
 .course-img {
@@ -89,12 +87,23 @@ p {
 }
 
 .center-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  align-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 
 .page-name {
@@ -115,12 +124,23 @@ p {
 }
 
 .course-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
   text-align: left;
 }
 
@@ -152,7 +172,8 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-line-clamp: 5;
+  /* number of lines to show */
   line-clamp: 5;
   -webkit-box-orient: vertical;
 }
@@ -173,20 +194,31 @@ p {
 }
 
 .content-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
 }
 
 .lesson-box {
   border: #295563 3px solid;
   border-radius: 5px;
-  background-color: white;
+  background-color: #fff;
   color: #5b5b5b;
-  /* #5b5b5b */
+  /* $font-color */
   position: relative;
 }
 
@@ -205,27 +237,46 @@ p {
   right: 10px;
   top: 10px;
   z-index: 1;
-  color: white;
+  color: #fff;
   padding: 5px;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .docs-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  align-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 
 .docs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
   margin-right: 3vw;
 }
 
@@ -237,7 +288,6 @@ p {
 
 .course-material-title {
   width: 100%;
-  text-align: left;
   text-transform: uppercase;
 }
 
@@ -251,21 +301,16 @@ p {
   width: auto;
 }
 
-
-
 .back-btn {
   position: fixed;
   right: 2%;
   bottom: 2%;
 }
 
-
-
 @media only screen and (max-width: 394px) {
   .hr-with-text {
     all: unset;
   }
-
   .hr-with-text span {
     all: unset;
   }
@@ -274,3 +319,4 @@ p {
     padding-right: 3vw;
   }
 }
+/*# sourceMappingURL=style.css.map */
