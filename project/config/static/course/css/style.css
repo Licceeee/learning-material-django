@@ -23,18 +23,31 @@ body .custom-input {
 }
 /*# sourceMappingURL=style.css.map */
 
-.button-primary {
+.btn-primary {
+  border-color: #56797c;
   background-color: #56797c;
   color: white;
-  height: 30px;
-  text-align: center;
+  /* text-align: center;
   padding: 15px;
   border-radius: 10px;
-  text-decoration: none;
+  text-decoration: none; */
 }
 
-.button-primary:hover {
+.btn-primary:hover {
+  border-color: #94c2c6;
   background-color: #94c2c6;
+  color: white;
+}
+
+.btn-secondary {
+  border-color: #b17654;
+  background-color: #b17654;
+  color: white;
+}
+
+.btn-secondary:hover {
+  border-color: #8b5a3e;
+  background-color: #8b5a3e;
   color: white;
 }
 
@@ -69,6 +82,12 @@ p {
   min-height: 11rem;
 }
 
+.category-title-description {
+  padding-left: 15vw;
+  padding-right: 15vw;
+  padding-top: 1vh;
+}
+
 .center-content {
   display: flex;
   flex-direction: row;
@@ -82,26 +101,10 @@ p {
   text-decoration: none;
 }
 
-.button-secondary {
-  background-color: #b17654;
-  color: white;
-  height: 30px;
-  text-align: center;
-  padding: 15px;
-  border-radius: 10px;
-  text-decoration: none;
-}
-
-.button-secondary:hover {
-  background-color: #8b5a3e;
-  text-decoration: underline;
-  color: white;
-}
-
 .hr-with-text {
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid;
+  border-bottom: 0.5px solid #5b5b5b;
   line-height: 0.1em;
   margin: 10px 0 20px;
 }
@@ -166,14 +169,8 @@ p {
 
 .course-title:hover,
 .course-description:hover {
-  text-overflow: unset;
-  display: unset;
+  all: unset;
 }
-
-/* .course-description:hover, .course-title:hover {
-  text-overflow: unset;
-  display: contents;
-} */
 
 .content-left {
   display: flex;
@@ -202,14 +199,6 @@ p {
   font-weight: 300;
 }
 
-.button-center-div {
-  /* display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-  width: 100%; */
-}
-
 .day {
   background-color: #de7321;
   position: absolute;
@@ -222,12 +211,12 @@ p {
 }
 
 .docs-box {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
 }
 
 .docs {
@@ -237,7 +226,7 @@ p {
   justify-content: flex-start;
   align-items: center;
   align-content: stretch;
-  margin-right: 4rem;
+  margin-right: 3vw;
 }
 
 .mini {
@@ -250,4 +239,38 @@ p {
   width: 100%;
   text-align: left;
   text-transform: uppercase;
+}
+
+.all-categories-text-container {
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+
+.arrow-img {
+  height: 6vh;
+  width: auto;
+}
+
+
+
+.back-btn {
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+}
+
+
+
+@media only screen and (max-width: 394px) {
+  .hr-with-text {
+    all: unset;
+  }
+
+  .hr-with-text span {
+    all: unset;
+  }
+  .category-title-description {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
 }
