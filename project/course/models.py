@@ -1,5 +1,16 @@
 from django.db import models
 from core.models import Timestamps
+from core.libs.core_libs import (get_headshot_image, get_image_format)  # noqa
+
+
+def img_upload_path(instance, filename):
+    ext = filename.split('.')[-1]
+    if instance.pk:
+        filename = f'{instance.pk}.{ext}'
+    else:
+        # set filename as random string
+        filename = f'{uuid4().hex}.{ext}'
+    return (f'courses/intro_images/{filename}')
 
 
 class Category(Timestamps):
@@ -34,8 +45,8 @@ class Course(Timestamps):
     teacher = models.ForeignKey(Teacher, default=None, null=True,
                                 on_delete=models.CASCADE)
     folder_name = models.CharField(max_length=100, unique=True, null=True)
-    intro_video = models.CharField(max_length=500, blank=True, null=True)
-    intro_image = models.CharField(max_length=500, blank=True, null=True)
+    image = models.ImageField(upload_to=img_upload_path, null=True,
+                              blank=True)
 
     class Meta(object):
         verbose_name = "Course"
@@ -46,6 +57,18 @@ class Course(Timestamps):
 
     def count_videos(self):
         return self.lesson_set.count()
+    count_videos.short_description = '# Videos'
+
+    def headshot_image(self):
+        return get_headshot_image(self.image, 300)
+    headshot_image.short_description = 'Preview'
+
+    def get_image(self):
+        if self.image:
+            return get_image_format(self.image, 100)
+        else:
+            return "No Image"
+    get_image.short_description = 'Image'
 
 
 class Lesson(Timestamps):
