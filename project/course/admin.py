@@ -43,8 +43,8 @@ class TeacherAdmin(admin.ModelAdmin):
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
     search_fields = ['title']
-    list_display = ('title', 'course', 'seen', 'created', 'updated')
-    list_filter = ('course', 'seen')
+    list_display = ('title', 'course', 'day', 'created', 'updated')
+    list_filter = ('course',)
     autocomplete_fields = ['course']
     readonly_fields = ('created', 'updated')
 
