@@ -3,9 +3,14 @@
 
 {% block content %}
 
-<div class="p-4">
+<div class="p-3">
     <h4 class="capitalize">{{ title }}</h4>
+    <p class="category-title-description">
+        {{ description }}
+    </p>
+    {% include "course/_partials/arrow-down.html" %}
 </div>
+
 
 
 <div class="center-content">
@@ -46,22 +51,20 @@
 
                 <div class="container center-content py-4">
                     <div>
-                        <a href="{% url 'course-detail' course.id %}" class="button-primary">
+                        <a href="{% url 'course-detail' course.id %}" class="btn btn-primary btn-lg">
                             Take course
                         </a>
                     </div>
-                   
+
                 </div>
             </div>
-
-
         </div>
     </div>
     {% endfor %}
 
 </div>
-
-
+<hr>
+{% include "course/_partials/btn-back.html" %}
 {% include "course/_partials/admin_or_logout.html" %}
 
 {% endblock %}
