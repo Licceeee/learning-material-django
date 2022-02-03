@@ -18,10 +18,11 @@ class CourseDocInlineAdmin(SortableInlineAdminMixin, admin.StackedInline):
 class CourseAdmin(admin.ModelAdmin):
     inlines = [LessonInlineAdmin, CourseDocInlineAdmin]
     search_fields = ['title', 'teacher']
-    list_display = ('title', 'teacher', 'folder_name', 'created', 'updated')
+    list_display = ('title', 'teacher', 'category', 'count_videos',
+                    'get_image')
     list_filter = ('title', 'teacher')
     autocomplete_fields = ['teacher', 'category']
-    readonly_fields = ('created', 'updated')
+    readonly_fields = ('created', 'updated', 'headshot_image')
 
 
 @admin.register(Category)
