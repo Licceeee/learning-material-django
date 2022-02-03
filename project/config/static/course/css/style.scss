@@ -147,12 +147,21 @@ p {
 }
 
 .course-intro-image {
-  height: 145px;
+  height: 150px;
   width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  object-fit: cover;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
 }
+.course-intro-image-placeholder {
+    height: 150px;
+    object-fit: cover;
+  //   display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
 .small-p {
   font-size: 14px;

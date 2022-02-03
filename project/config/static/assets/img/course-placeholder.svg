@@ -1,0 +1,9 @@
+<svg width="150" height="116" viewBox="0 0 150 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_33_94" fill="white">
+<rect x="150" width="115.385" height="150" rx="1" transform="rotate(90 150 0)"/>
+</mask>
+<rect x="150" width="115.385" height="150" rx="1" transform="rotate(90 150 0)" stroke="#5B5B5B" stroke-width="10" mask="url(#path-1-inside-1_33_94)"/>
+<line x1="146.17" y1="113.907" x2="2.51647" y2="3.71442" stroke="#5B5B5B" stroke-width="5"/>
+<line x1="68.9993" y1="55.3462" x2="150" y2="55.3462" stroke="#5B5B5B" stroke-width="5"/>
+<circle cx="38.3651" cy="77.5962" r="20.8654" transform="rotate(90 38.3651 77.5962)" stroke="#5B5B5B" stroke-width="5"/>
+</svg>

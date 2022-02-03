@@ -153,9 +153,16 @@ p {
 }
 
 .course-intro-image {
-  height: 145px;
+  height: 150px;
   width: 100%;
-  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.course-intro-image-placeholder {
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
   margin-left: auto;
   margin-right: auto;
 }
