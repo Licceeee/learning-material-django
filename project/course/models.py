@@ -75,7 +75,6 @@ class Lesson(Timestamps):
     title = models.CharField(max_length=100, unique=True)
     course = models.ForeignKey(Course, default=None, null=True,
                                on_delete=models.CASCADE)
-    order = models.FloatField(null=True, blank=True)
     day = models.IntegerField(null=True, blank=True)
     sortable_inline_order = models.PositiveIntegerField(default=0, blank=False,
                                                         null=False)
