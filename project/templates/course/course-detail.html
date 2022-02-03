@@ -52,13 +52,25 @@
 
     <div class="col-12 col-md-6 col-xl-3 p-3">
         <div class="course-box lesson-box p-3">
+            {% if lesson.day %}
             <div class="day">Day {{ lesson.day }}</div>
+            {% endif %}
             <div class="mb-3">
-                <video class="course-intro" controls>
+
+                <video controls width="250" preload="metadata">
+                    <source
+                        src="{{ MEDIA_URL }}courses/{{ lesson.course.category.name }}/{{ lesson.course.folder_name }}/{{  lesson.url }}#t=0.5"
+                        type="video/mp4">
+
+
+                </video>
+
+
+                <!-- <video class="course-intro" controls>
                     <source
                         src="{{ MEDIA_URL }}courses/{{ lesson.course.category.name }}/{{ lesson.course.folder_name }}/{{  lesson.url }}"
                         type="video/mp4">
-                </video>
+                </video> -->
             </div>
             <div class="course-box">
                 <div class="course-title">
