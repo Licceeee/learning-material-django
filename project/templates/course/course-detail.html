@@ -8,24 +8,23 @@
 
 <div class="col-12">
     <h4 class="p-2">{{ object.title }}</h4>
-    <h6 class="corsivo p-2"># Lessons: {{ nr_lessons }}</h6>
 </div>
 
 
 
 <!-- Section docs -->
 
-<div class="p-2">
+{% if object.coursedoc_set.all|length > 0 %}
+<div class="p-2 border">
     <div class="course-material-title pb-3">
-        <h6>Course Material</h6>
+        <h6>Course Materials</h6>
     </div>
 
-    <div class="content-left docs-box">
+    <div class="docs-box">
         {% for doc in object.coursedoc_set.all %}
         <div class="docs">
-
             <a href="{{ MEDIA_URL }}{{ doc.file }}" target="blank_">
-                <img class="pdf-img" src="{% static 'assets/img/pdf-1.png' %}" />
+                <img class="pdf-img" src="{% static 'assets/img/Doc.svg' %}" />
             </a>
             <div>
                 <small>
@@ -37,14 +36,15 @@
                 Day {{ doc.day }}
             </small>
             {% else %}
-             <p></p>
+            <p></p>
             {% endif %}
         </div>
         {% endfor %}
     </div>
 </div>
+{% endif %}
 
-<hr>
+<h6 class="corsivo p-3"># Lessons: {{ nr_lessons }}</h6>
 
 <div class="content-left">
 
