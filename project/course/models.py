@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import Timestamps
 from core.libs.core_libs import (get_headshot_image, get_image_format)  # noqa
+from uuid import uuid4
 
 
 def img_upload_path(instance, filename):
