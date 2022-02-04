@@ -9,7 +9,7 @@ $primary-hover: #56797c;
 $secondary: #D18B74;
 $secondary-hover: #BA5E40;
 
-$boder: #295563;
+$border: #295563;
 $accent: #EFB291;
 
 html {
@@ -39,12 +39,7 @@ body {
 .btn-primary {
   border-color: $primary;
   background-color: $primary;
-
   color: $white;
-  /* text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    text-decoration: none; */
 }
 
 .btn-primary:hover {
@@ -65,8 +60,36 @@ body {
   color: $white;
 }
 
+.btn-outline-secondary {
+  border-color: $secondary;
+  background-color: $background-color;
+  color: $secondary;
+}
+
+.btn-outline-secondary:hover {
+  border-color: $secondary-hover;
+  background-color: $secondary-hover;
+  color: $white;
+}
+
+
+
+
+
+.btn-danger {
+  border-color: #EDBD77;
+  background-color: #EDBD77;
+  color: $white;
+}
+
+.btn-danger:hover {
+  border-color: #F6B12C;
+  background-color: #F6B12C;
+  color: $white;
+}
+
 .category-box {
-  border: $boder 3px solid;
+  border: $border 3px solid;
   border-radius: 5px;
   background-color: $white;
   color: $font-color;
@@ -205,7 +228,7 @@ p {
 }
 
 .lesson-box {
-  border: $boder 3px solid;
+  border: $border 3px solid;
   border-radius: 5px;
   background-color: $white;
   color: $font-color;
@@ -223,7 +246,7 @@ p {
 }
 
 .day {
-  background-color: $accent;
+  background-color: $secondary;
   position: absolute;
   right: 10px;
   top: 10px;
@@ -270,7 +293,7 @@ p {
 }
 
 .arrow-img {
-  height: 6vh;
+  height: 9vh;
   width: auto;
 }
 
@@ -280,6 +303,17 @@ p {
   bottom: 2%;
 }
 
+.button-box {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: center;
+}
+
+
+// RESPONSIVE
 @media only screen and (max-width: 394px) {
   .hr-with-text {
     all: unset;
