@@ -26,6 +26,7 @@
     <div class="docs-box">
         {% for doc in object.coursedoc_set.all %}
         <div class="docs">
+
             <a href="{{ MEDIA_URL }}{{ doc.file }}" target="blank_">
                 <img class="pdf-img" src="{% static 'assets/img/Doc.svg' %}" />
             </a>

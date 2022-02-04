@@ -239,7 +239,26 @@ p {
 .pdf-img {
   height: 100px;
   width: auto;
+  :hover {
+    background-color: #295563;
+    height: 200px;
+  }
 }
+
+
+.pdf-img:hover {
+  transform: scale(1.15);
+  }
+
+
+
+
+
+
+
+
+
+
 
 .nr-lessons {
   font-weight: 300;
