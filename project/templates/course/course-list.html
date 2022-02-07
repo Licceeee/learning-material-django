@@ -20,17 +20,20 @@
 
     <div class="col-12 col-md-6 col-xl-3 p-3">
         <div class="course-box category-box p-3">
+
+            {% if sorted_by_category == None %}
+                <div class="category-badge">{{ course.category.name }}</div>
+            {% endif %}
+
             <div class="mb-3 w-100">
                 {% if course.image %}
-                <img class="course-intro-image"
-                    src="{{ course.image.url }}"
-                    alt="intro">
+                <img class="course-intro-image" src="{{ course.image.url }}" alt="intro">
                 {% else %}
-                <img class="course-intro-image-placeholder"
-                    src="{% static 'assets/img/course-placeholder.png' %}"
+                <img class="course-intro-image-placeholder" src="{% static 'assets/img/course-placeholder.png' %}"
                     alt="intro">
                 {% endif %}
             </div>
+
             <div class="course-box">
                 <div class="course-title mb-0">
                     <h5><strong>{{ course.title }}</strong></h5>

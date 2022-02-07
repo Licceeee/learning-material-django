@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from course.models import (Category, Course, Lesson)
+from course.models import (Category, Course)
 
 
 class CategoryListView(ListView):
@@ -42,6 +42,7 @@ class CourseListView(TemplateView):
         context['title'] = get_category_infos()[0]
         context['description'] = get_category_infos()[1]
         context['courses'] = get_category_infos()[2]
+        context['sorted_by_category'] = get_category_id_from_params()
         return context
 
 

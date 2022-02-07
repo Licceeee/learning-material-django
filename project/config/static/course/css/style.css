@@ -74,7 +74,7 @@ body {
   border-radius: 5px;
   background-color: #fff;
   color: #5b5b5b;
-  /* $font-color */
+  position: relative;
 }
 
 .course-img {
@@ -270,6 +270,17 @@ p {
 
 .day {
   background-color: #D18B74;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.category-badge {
+  background-color: #295563;
   position: absolute;
   right: 10px;
   top: 10px;
