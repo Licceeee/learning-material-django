@@ -291,15 +291,33 @@ p {
   justify-content: flex-start;
   align-items: center;
   align-content: stretch;
+  max-width: 100px;
+}
 
-  // margin-right: 3vw;
+.doc-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+}
+
+.doc-title:hover {
+  all: unset;
+  font-size: smaller;
 }
 
 .mini {
   font-size: 12px;
   width: 100%;
-  /* text-align: left; */
+  color: $secondary-hover;
+  border: 1px $secondary-hover solid;
+  border-radius: 4px;
+  margin-top: 2px;
 }
+
 
 .course-material-title {
   width: 100%;
