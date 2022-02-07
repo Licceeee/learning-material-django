@@ -278,8 +278,8 @@ p {
 .docs-box {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 //   align-items: stretch;
   align-content: flex-start;
 }
@@ -287,10 +287,11 @@ p {
 .docs {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   align-content: stretch;
+
   // margin-right: 3vw;
 }
 
