@@ -96,7 +96,7 @@ class Lesson(Timestamps):
 
 
 class CourseDoc(Timestamps):
-    title = models.CharField(max_length=100, unique=True)
+    title = models.CharField(max_length=100)
     course = models.ForeignKey(Course, default=None, null=True,
                                on_delete=models.CASCADE)
     sortable_inline_order = models.PositiveIntegerField(default=0, blank=False,
