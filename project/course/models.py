@@ -18,6 +18,7 @@ class Category(Timestamps):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(null=True)
     icon_source = models.CharField(max_length=500, null=True, blank=True)
+    online = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Category"
