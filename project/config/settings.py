@@ -156,7 +156,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'config/static',
 ]
 
-ADMINS = (('Alicia Schonefeld', 'schonefeld.dev@gmail.com'), )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
