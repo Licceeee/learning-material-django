@@ -27,6 +27,10 @@ class Category(Timestamps):
     def __str__(self):
         return f"{self.name}"
 
+    def count_courses(self):
+        return self.course_set.count()
+    count_courses.short_description = '# Courses'
+
 
 class Teacher(Timestamps):
     name = models.CharField(max_length=100, unique=True)

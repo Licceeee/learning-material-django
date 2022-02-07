@@ -43,7 +43,7 @@
             </div>
 
             <h3>{{ category.name }}</h3>
-            <h6 class="mb-3 corsivo">{{ category.course_set.all|length }}
+            <h6 class="mb-3 corsivo">{{ category.count_courses }}
                 {% if category.course_set.all|length == 1 %}
                 course
                 {% else%}
