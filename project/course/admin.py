@@ -28,7 +28,9 @@ class CourseAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['name']
-    list_display = ('name', 'description', 'online', 'created', 'updated')
+    list_display = ('name', 'description', 'online', 'count_courses', 
+                    'created', 'updated')
+    list_editable = ('online',)
     readonly_fields = ('created', 'updated')
 
 
