@@ -1,6 +1,7 @@
 from django.contrib import admin
 from adminsortable2.admin import SortableInlineAdminMixin
-from .models import (Category, Course, Teacher, Lesson, CourseDoc)
+from .models import (Category, Course, Teacher, Lesson, CourseDoc,
+                     CourseUser, LessonUser)
 
 
 # ================================================================== >> INLINES
@@ -57,4 +58,22 @@ class CourseDocAdmin(admin.ModelAdmin):
     list_display = ('title', 'course', 'created', 'updated')
     list_filter = ('course',)
     autocomplete_fields = ['course']
+    readonly_fields = ('created', 'updated')
+
+
+@admin.register(CourseUser)
+class CourseUserAdmin(admin.ModelAdmin):
+    search_fields = ['user', 'course']
+    list_display = ('user', 'course', 'completed', 'created', 'updated')
+    list_filter = ('completed',)
+    autocomplete_fields = ['user', 'course']
+    readonly_fields = ('created', 'updated')
+
+
+@admin.register(LessonUser)
+class LessonUserAdmin(admin.ModelAdmin):
+    search_fields = ['user', 'lesson']
+    list_display = ('user', 'lesson', 'completed', 'created', 'updated')
+    list_filter = ('completed',)
+    autocomplete_fields = ['user', 'lesson']
     readonly_fields = ('created', 'updated')
