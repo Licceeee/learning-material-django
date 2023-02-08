@@ -2,7 +2,7 @@ from django.db import models
 from core.models import Timestamps
 from core.libs.core_libs import (get_headshot_image, get_image_format)  # noqa
 from uuid import uuid4
-
+from user.models import CustomUser
 
 def img_upload_path(instance, filename):
     ext = filename.split('.')[-1]
@@ -94,6 +94,9 @@ class Lesson(Timestamps):
     def __str__(self):
         return f"{self.title}"
 
+    def get_user_lesson():
+        pass
+
 
 class CourseDoc(Timestamps):
     title = models.CharField(max_length=100)
@@ -113,3 +116,23 @@ class CourseDoc(Timestamps):
 
     def __str__(self):
         return f"{self.title}"
+
+
+class CourseUser(Timestamps):
+    user = models.ForeignKey(CustomUser, default=None,
+                             on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, default=None, on_delete=models.CASCADE)
+    completed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.user} {self.course.title}"
+
+
+class LessonUser(Timestamps):
+    user = models.ForeignKey(CustomUser, default=None,
+                             on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, default=None, on_delete=models.CASCADE)
+    completed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.user} {self.lesson.title}"
