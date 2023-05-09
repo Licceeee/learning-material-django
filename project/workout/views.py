@@ -6,7 +6,7 @@ from .models import Workout
 from django.db.models import Q
 from core.libs.global_functions import calc_min_or_hour  # noqa
 from dal import autocomplete  # noqa
-from django.db.models import Q
+from django.db.models import Q  # noqa
 
 
 def get_or_create_routine(date):

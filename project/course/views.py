@@ -39,6 +39,9 @@ class CourseListView(TemplateView):
             return ("All courses", "Browse through all the courses",
                     Course.objects.all())
 
+        # def start_course():
+        #     user = self.request.user
+
         context['title'] = get_category_infos()[0]
         context['description'] = get_category_infos()[1]
         context['courses'] = get_category_infos()[2]
